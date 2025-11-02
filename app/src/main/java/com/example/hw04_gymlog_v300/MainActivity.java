@@ -46,14 +46,14 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        repository = GymLogRepository.getRepository(getApplication());
+
         loginUser();
 
         if (loggedInUserId == -1) {
             Intent intent = LoginActivity.loginIntentFactory(getApplicationContext());
             startActivity(intent);
         }
-
-        repository = GymLogRepository.getRepository(getApplication());
 
         binding.logDisplayTextView.setMovementMethod(new ScrollingMovementMethod());
         updateDisplay();
@@ -111,7 +111,8 @@ public class MainActivity extends AppCompatActivity {
         if (user == null) {
             return false;
         }
-        item.setTitle(user.getUsername());
+//        item.setTitle(user.getUsername());
+        item.setTitle("Jesus");
         item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
