@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         LiveData<User> userObserver = repository.getUserByUserId(loggedInUserId);
         userObserver.observe(this, user -> {
             if (user != null) {
+                this.user = user;
                 invalidateOptionsMenu();
             }
         });
@@ -111,8 +112,7 @@ public class MainActivity extends AppCompatActivity {
         if (user == null) {
             return false;
         }
-//        item.setTitle(user.getUsername());
-        item.setTitle("Jesus");
+        item.setTitle(user.getUsername());
         item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(@NonNull MenuItem menuItem) {
