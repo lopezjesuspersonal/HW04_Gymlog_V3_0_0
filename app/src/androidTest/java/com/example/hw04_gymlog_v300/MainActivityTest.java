@@ -35,12 +35,6 @@ public class MainActivityTest {
 
     @Test
     public void loginCreateLogTest() {
-        // A brief pause to allow the app to fully reset after being cleared.
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
 
         SystemClock.sleep(1000);
         onView(ViewMatchers.withId(R.id.userNameLoginEditText)).perform(typeText(TEST_USERNAME), closeSoftKeyboard());
@@ -65,11 +59,6 @@ public class MainActivityTest {
         onView(ViewMatchers.withId(R.id.passwordLoginEditText)).perform(typeText(TEST_PASSWORD), closeSoftKeyboard());
         onView(ViewMatchers.withId(R.id.loginButton)).perform(click());
 
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         SystemClock.sleep(2000);
         onView(withId(R.id.logDisplayRecyclerView)).check(matches(isDisplayed()));
         onView(withText(containsString(EXERCISE_NAME))).check(matches(isDisplayed()));
